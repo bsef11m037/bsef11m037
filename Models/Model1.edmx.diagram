@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ec9dc4d1ca574391af91c150e9332465" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.comment" Width="1.5" PointX="3.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.favourite" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.mobile" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.user" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.cmnt_mob_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.cmnt_user_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.fav_mob_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.fav_user_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

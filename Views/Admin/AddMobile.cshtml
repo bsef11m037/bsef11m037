@@ -1,0 +1,87 @@
+﻿
+
+@model MobileEra.Models.mobile
+
+
+<div class="row" style="margin-top: 10px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Update Mobile</h2>
+                <hr class="colorgraph" />
+            </div>
+            <div class="panel-body">
+                <form role="form" action="/Admin/addMobileDone" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    @Html.LabelFor(x => x.Made)
+                    <div class="form-group">
+                        <select class="form-control" id="Made" name="Made">
+                            <option value="nokia">Nokia</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="htc">HTC</option>
+                            <option value="qmobile">QMobile</option>
+                            <option value="huawei">Huawei</option>
+                            <option value="gfive">G'five</option> 
+                        </select>
+                    </div>
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Model, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Model, new { @class = "form-control float-input", placeholder = "Model" })
+                        @Html.ValidationMessageFor(x => x.Model, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.OS, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.OS, new { @class = "form-control float-input", placeholder = "Operating System" })
+                        @Html.ValidationMessageFor(x => x.OS, String.Empty, new { @class = "text text-danger" })
+                    </div>
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Screen_Size, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Screen_Size, new { @class = "form-control float-input", placeholder = "Screen Size" })
+                        @Html.ValidationMessageFor(x => x.Screen_Size, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Price, new { @class = "float-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control float-input", placeholder = "Price" })
+                            <span class="input-group-addon">Rs.</span>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.Price, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Processor, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Processor, new { @class = "form-control float-input", placeholder = "Processor" })
+                        @Html.ValidationMessageFor(x => x.Processor, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Weight, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Weight, new { @class = "form-control float-input", placeholder = "Weight" })
+                        @Html.ValidationMessageFor(x => x.Weight, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Battery, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Battery, new { @class = "form-control float-input", placeholder = "Batery Capacity" })
+                        @Html.ValidationMessageFor(x => x.Battery, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Camera, new { @class = "float-label" })
+                        <div class="input-group">
+                            @Html.TextBoxFor(x => x.Camera, new { @class = "form-control  float-input", placeholder = "Enter Camera in MP" })
+                            <span class="input-group-addon">MP</span>
+                        </div>
+                        @Html.ValidationMessageFor(x => x.Camera, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Others, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Others, new { @class = "form-control  float-input", placeholder = "Others Info" })
+                    </div>
+                    <!-- Change this to a button or input when using this as a form -->
+                    <input type="file" name="image" id="image"><i class="glyphicon glyphicon-folder-open"></i></input>
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Add" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

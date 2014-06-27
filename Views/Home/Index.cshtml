@@ -1,0 +1,44 @@
+﻿@model List<MobileEra.Models.mobile>
+@{string p;}
+
+
+<marquee behavior="scroll" direction="left">
+    <b>Latest Prices:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@for (int i = 0; i < Model.Count; i++)
+{
+    p = Model[i].Model + " : " + Model[i].Price + "$" + "**************";
+    @p;     
+    }    
+</marquee>
+
+<hr class="colorgraph" />
+<div class="jumbotron">
+    <h2>
+        <img src="~/images/logo.png" />Welcome to Mobil Era</h2>
+    <img src="~/images/landing_30june.jpg"  class="pull-right img-circle" />
+    <p style="color:#0094ff">Mobile Phone Prices / price list is updated daily from local Mobile shops & Mobile dealers in Pakistan but we can't guarantee that mobile prices / price list on this page is 100% correct (Human error is possible). Always visit your local shop for exact mobile prices. What Mobile Pakistan - Nokia mobile prices / LG mobile prices / Samsung mobile prices / Sony Ericsson mobile prices / HTC mobile prices - What Mobile Prices in Pakistan</p>    
+    <button class="btn btn-success" role="button"><i class="fa fa-list"></i> Learn More</button>
+    
+</div>
+<div class="row">
+    <div class="page-header">
+        <h4><i class="navbar-fixed-top"></i>Top Rating</h4>
+    </div>
+    <div id="star"></div>
+    @for(int i=0;i<Model.Count;i++){
+    <div class="col-lg-3">
+        <div class="thumbnail">
+            <img src="~/images/GalaxyS5b.gif" id="img-@i" style="height: 140px; width: auto" />
+            <div class="caption">
+                <p style="text-align: center"><strong>Price:</strong> @Model[i].Price$</p>
+                <h4 style="text-align: center"><a href="/Mobile/Detail?Model=@Model[i].Model">@Model[i].Model</a></h4>              
+           <p>
+                 <a href="/Mobile/Detail?Model=@Model[i].Model" class="btn btn-success" style="display:inline"><i class="glyphicon glyphicon-eye-open"></i> View</a>
+                 <a href="/Mobile/addFav?Model=@Model[i].Model" class="btn btn-primary" style="display:inline"><i class="fa fa-heart fa-fw"></i> Favourite</a>
+              </p>  
+            </div>
+        </div>
+    </div>
+    }
+
+</div>

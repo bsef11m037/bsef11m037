@@ -1,0 +1,335 @@
+﻿
+@{ MobileEra.Models.user u = (MobileEra.Models.user)HttpContext.Current.Session["user"]; }
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="~/images/logo.png" />
+    <title>@ViewBag.title | Mobile Era</title>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <!-- Core CSS - Include with every page -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+    <!-- Page-Level Plugin CSS - Dashboard -->
+    <link href="~/Content/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="~/Content/timeline.css" rel="stylesheet" />
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="~/Content/sb-admin.css" rel="stylesheet" />
+
+
+    @*//for floating label*@
+    <style>
+        .bs-float-label {
+            position: relative;
+            margin: 10px;
+            padding: 10px;
+        }
+
+            .bs-float-label > .float-input {
+                margin-top: 10px;
+            }
+
+                .bs-float-label > .float-input:focus {
+                    /*border-color: #f06d06;*/
+                }
+
+            .bs-float-label > .float-label {
+                position: absolute;
+                top: 3px;
+                left: 10px;
+                background: rgba(255, 255, 255, .32);
+                -webkit-transition: top .5s ease-in-out, opacity .5s ease-in-out; /* For Safari 3.1 to 6.0 */
+                transition: top .5s ease-in-out, opacity .5s ease-in-out;
+                opacity: 0;
+            }
+
+                .bs-float-label > .float-label.show {
+                    color: #807777;
+                    top: 1px;
+                    opacity: 1;
+                }
+
+                .bs-float-label > .float-label.on {
+                    color: #0a0808;
+                }
+    </style>
+
+    <link href="~/Content/application.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="~/images/logo.png" />
+                    Mobile Era</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-nav navbar-right">
+                <li id="home">
+                    <a href="/">
+                        <i class="glyphicon glyphicon-home"></i> Home
+                    </a>
+                </li>
+
+                <li id="favourite">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/Mobile/Favourite">
+                        <i class="fa fa-heart fa-fw"></i> Favourite Mobiles
+                    </a>
+                </li>
+
+                <li id="topMobiles">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-star"></i> Top Rating Mobiles
+                    </a>
+                </li>
+
+
+                @if (u == null)
+                {
+                    <li class="dropdown">
+                        <a href="/account/login">
+                            <i class="glyphicon glyphicon-user"></i> Login
+                        </a>
+                        <!-- /.dropdown-tasks -->
+                    </li>
+                    <li class="dropdown">
+                        <a href="/account/signup">
+                            <i class="glyphicon glyphicon-plus-sign"></i> Sign Up
+                        </a>
+
+                        <!-- /.dropdown-accounts -->
+                    </li>
+                }
+                else
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> @u.Full_Name <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            </li>
+                            <li><a href="/Account/changePassword"><i class="fa fa-gear fa-fw"></i> Change Password</a>
+                            </li>                     
+                            @if (u.type.Equals("admin"))
+                            {
+                                <li><a href="/Admin"><i class="glyphicon glyphicon-tasks"></i> Admin Panel</a></li>
+                            }
+                            <li class="divider"></li>
+                            <li><a href="/Account/Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                }
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+
+
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-earphone"></i> Mobiles by Brand<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+
+                                <li>
+                                    <a href="morris.html"><i class="glyphicon glyphicon-check"></i> Nokia</a>
+                                </li>
+                                <li>
+                                    <a href="flot.html"><i class="glyphicon glyphicon-check"></i> Samsung</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html"><i class="glyphicon glyphicon-check"></i> HTC</a>
+                                </li>
+                                <li>
+                                    <a href="flot.html"><i class="glyphicon glyphicon-check"></i> QMobile</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html"><i class="glyphicon glyphicon-check"></i> G'five</a>
+                                </li>
+                                <li>
+                                    <a href="flot.html"><i class="glyphicon glyphicon-check"></i> Huawei</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html"><i class="glyphicon glyphicon-check"></i> Apple</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-bar-chart-o fa-fw"></i> Mobiles by Price<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-stats"></i> 1000 - 5000</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-stats"></i> 5000 - 10,000</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-stats"></i> 15,000 - 20,000</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-stats"></i> 20,000 - 30,000</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-stats"></i> >30,000</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="glyphicon glyphicon-camera"></i> By Camera<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-camera"></i> 5MP</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-camera"></i> 5MP-8MP</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="glyphicon glyphicon-camera"></i> >8MP</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-globe"></i> By OS<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html"><i class="glyphicon glyphicon-globe"></i> Android</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html"><i class="glyphicon glyphicon-globe"></i> Windows</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html"><i class="glyphicon glyphicon-globe"></i> iOS</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html"><i class="glyphicon glyphicon-globe"></i> Symbian</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="glyphicon glyphicon-fullscreen"></i> By Screen Size<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html"><i class="glyphicon glyphicon-fullscreen"></i> 3"</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html"><i class="glyphicon glyphicon-fullscreen"></i> 3" - 4"</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html"><i class="glyphicon glyphicon-fullscreen"></i> 5"</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html"><i class="glyphicon glyphicon-fullscreen"></i> >5"</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    @RenderBody()
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+    </div>
+    <footer>
+        <p style="text-align: center"><i class="glyphicon glyphicon-copyright-mark"></i>Copy Rights Reserved</p>
+    </footer>
+    <!-- /#wrapper -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.metisMenu.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Dashboard -->
+    <script src="js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="js/plugins/morris/morris.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="~/Scripts/sb-admin.js"></script>
+
+    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+    <script src="js/demo/dashboard-demo.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.raty.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.intellisense.js"></script>
+    
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $(document).ready(function (e) {
+
+            if ($('.bs-float-label input').length) {
+                var bs_float_on_class = "on";
+                var bs_float_show_class = "show";
+
+                $('.float-input').on('bs-check-value', function () {
+                    var _bs_label = $(this).closest('.bs-float-label').find('.float-label');
+                    if (this.value !== '') {
+                        _bs_label.addClass(bs_float_show_class);
+                    } else {
+                        _bs_label.removeClass(bs_float_show_class);
+                    }
+                })
+                .on("keyup", function () {
+                    $(this).trigger("bs-check-value");
+                })
+                .on("focus", function () {
+                    $(this).closest(".bs-float-label").find('.float-label').addClass(bs_float_on_class);
+                })
+                .on("blur", function () {
+                    $(this).closest(".bs-float-label").find('.float-label').removeClass(bs_float_on_class);
+                }).trigger("bs-check-value");
+                ;
+            }
+
+
+        });
+    </script>
+
+</body>
+
+</html>
+

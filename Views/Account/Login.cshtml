@@ -1,0 +1,72 @@
+﻿@{
+    
+    Layout = null;
+}
+@model MobileEra.Models.user
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.title | Mobile Era</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />    
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+
+    <!-- SB Admin CSS - Include with every page -->    
+    <link href="~/Content/sb-admin.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h2>Welcome to Mobile Era</h2>
+                        <hr class="colorgraph" />
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p style="color:red">@ViewBag.error</p>
+                        <form role="form" action="/account/LoginDone" method="post">                           
+                                <div class="form-group">
+                                    @Html.LabelFor(x=>x.Email)
+                                    @Html.TextBoxFor(x => x.Email, new {@class="form-control",  placeholder = "Email" ,type="email" , focused=""})                                    
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(x=>x.Password)
+                                    @Html.TextBoxFor(x => x.Password, new {@class="form-control", placeholder = "Password" ,type="password"})
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" id="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Login" />                       
+                        </form>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Scripts - Include with every page -->    
+    <script src="~/Scripts/jquery-1.10.2.js"></script>    
+    <script src="~/Scripts/bootstrap.min.js"></script>    
+    <script src="~/Scripts/jquery.metisMenu.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="~/Scripts/sb-admin.js"></script>
+
+</body>
+
+</html>
