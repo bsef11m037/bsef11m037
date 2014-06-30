@@ -1,7 +1,4 @@
-﻿@{
-    
-    Layout = null;
-}
+﻿
 @model MobileEra.Models.user
 
 <!DOCTYPE html>
@@ -21,13 +18,17 @@
     <!-- SB Admin CSS - Include with every page -->    
     <link href="~/Content/sb-admin.css" rel="stylesheet" />
 
+     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>    
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.intellisense.js"></script>
 </head>
 
 <body>
 
     <div class="container" style="margin-top:25px">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2>Welcome to Mobile Era</h2>
@@ -39,26 +40,28 @@
                             <div class="form-group">
                                 @Html.LabelFor(x => x.Full_Name)
                                 @Html.TextBoxFor(x => x.Full_Name, new { @class = "form-control", placeholder = "Your Full Name" })
-                                @Html.ValidationMessageFor(x => x.Full_Name);
+                                @Html.ValidationMessageFor(x => x.Full_Name, String.Empty, new { @class = "text text-danger" })
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(x => x.Email)
                                 @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Your E-mail", type = "email" })
-                                @Html.ValidationMessageFor(x => x.Email);
+                                @Html.ValidationMessageFor(x => x.Email, String.Empty, new { @class = "text text-danger" })
                                 <p id="msg"></p>
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(x => x.Password)
                                 @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Your new Password", type = "password" })
-                                @Html.ValidationMessageFor(x => x.Full_Name);
+                                @Html.ValidationMessageFor(x => x.Password, String.Empty, new { @class = "text text-danger" })
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(x => x.Security_Question)
                                 @Html.TextBoxFor(x => x.Security_Question, new { @class = "form-control", placeholder = "Scurity Qusetion"})
+                                @Html.ValidationMessageFor(x => x.Security_Question, String.Empty, new { @class = "text text-danger" })
                             </div>
                             <div class="form-group">
-                                    @Html.LabelFor(x => x.Answer)
-                                    @Html.TextBoxFor(x => x.Answer, new {@class="form-control", placeholder = "Answer"})
+                                @Html.LabelFor(x => x.Answer)
+                                @Html.TextBoxFor(x => x.Answer, new { @class = "form-control", placeholder = "Answer" })
+                                @Html.ValidationMessageFor(x => x.Answer, String.Empty, new { @class = "text text-danger" })
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
                             <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign Up" />
@@ -72,10 +75,8 @@
     <!-- Core Scripts - Include with every page -->    
     <script src="~/Scripts/jquery-1.10.2.js"></script>    
     <script src="~/Scripts/bootstrap.min.js"></script>    
-    <script src="~/Scripts/jquery.metisMenu.js"></script>
-
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="~/Scripts/sb-admin.js"></script>
+   
+   
     <script>
         $(function () {
             $("#Email").focus(function () {

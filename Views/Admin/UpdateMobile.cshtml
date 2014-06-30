@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    
+}
 
 @model MobileEra.Models.mobile
 
@@ -7,66 +9,83 @@
     <div class="col-md-8 col-md-offset-1">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h2>Add Mobile</h2>
+                <h2>Update Mobile</h2>
                 <hr class="colorgraph" />
             </div>
             <div class="panel-body">
                 <form role="form" action="/Admin/updateMobileDone" method="post" enctype="multipart/form-data">
-                    @Html.LabelFor(x=>x.Made)
-                    <div class="form-group">
-                        <select  class="form-control">
+                                        
+                    <div class="form-group bs-float-label">
+                    @Html.LabelFor(x => x.Made, new { @class = "float-label" })
+                        <select class="form-control float-input" id="Made" name="Made">
                             <option value="Nokia">Nokia</option>
                             <option value="Samsung">Samsung</option>
-                            <option value="">Nokia</option>
-                            <option value="Nokia">Nokia</option>
-                            <option value="Nokia">Nokia</option>
-                            <option value="Nokia">Nokia</option>
+                            <option value="HTC">HTC</option>
+                            <option value="Qmobile">QMobile</option>
+                            <option value="Huawei">Huawei</option>
+                            <option value="G'five">G'five</option> 
                         </select>
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x => x.Model)
-                        @Html.TextBoxFor(x => x.Model, new { @class = "form-control", placeholder = "Model",value=Model.Model })
-                        @Html.ValidationMessageFor(x => x.Model)
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Model, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Model, new { @class = "form-control float-input", placeholder = "Model",value=Model.Model})                        
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.OS)
-                        @Html.TextBoxFor(x => x.OS, new { @class = "form-control", placeholder = "Operating System" ,value=Model.OS})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.OS, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.OS, new { @class = "form-control float-input", placeholder = "Operating System" ,value=Model.OS})
                         @Html.ValidationMessageFor(x => x.OS)
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.Screen_Size)
-                        @Html.TextBoxFor(x => x.Screen_Size, new { @class = "form-control", placeholder = "Screen Size" ,value=Model.Price})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.Screen_Size, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Screen_Size, new { @class = "form-control float-input", placeholder = "Screen Size" ,value=Model.Price})
                         @Html.ValidationMessageFor(x => x.Screen_Size)
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.Price)
-                        @Html.TextBoxFor(x => x.Price, new { @class = "form-control", placeholder = "Price" ,value=Model.Price})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.Price, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Price, new { @class = "form-control float-input", placeholder = "Price" ,value=Model.Price})
                         @Html.ValidationMessageFor(x => x.Price)
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.Processor)
-                        @Html.TextBoxFor(x => x.Processor, new { @class = "form-control", placeholder = "Processor" ,value=Model.Processor})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.Processor, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Processor, new { @class = "form-control float-input", placeholder = "Processor" ,value=Model.Processor})
                         @Html.ValidationMessageFor(x => x.Processor)
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.Weight)
-                        @Html.TextBoxFor(x => x.Weight, new { @class = "form-control", placeholder = "Weight" ,value=Model.Weight})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.Weight, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Weight, new { @class = "form-control float-input", placeholder = "Weight" ,value=Model.Weight})
                         @Html.ValidationMessageFor(x => x.Weight)
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.Battery)
-                        @Html.TextBoxFor(x => x.Battery, new { @class = "form-control", placeholder = "Batery Capacity" ,value=Model.Battery})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.Battery, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Battery, new { @class = "form-control float-input", placeholder = "Batery Capacity" ,value=Model.Battery})
                         @Html.ValidationMessageFor(x => x.Battery)
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(x=>x.Others)
-                        @Html.TextBoxFor(x => x.Others, new { @class = "form-control", placeholder = "others" ,value=Model.Others})
+                    <div class="form-group bs-float-label">
+                        @Html.LabelFor(x=>x.Others, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Others, new { @class = "form-control float-input", placeholder = "others" ,value=Model.Others})
                         @Html.ValidationMessageFor(x => x.Others)
-                    </div>
-                    <div class="form-group form-control">                        
-                    </div>
-                    <input type="file" id="image" name="image"/>
-                    <!-- Change this to a button or input when using this as a form -->
+                    </div>              
+                    
+
+                    <!-- image-preview-filename input [start FROM HERE]-->
+                    <div class="input-group image-preview">
+                        <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                        <!-- don't give a name === doesn't send on POST/GET -->
+                        <span class="input-group-btn">
+                            <!-- image-preview-clear button -->
+                            <button type="button" class="btn btn-default image-preview-clear" style="display: none;">
+                                <span class="glyphicon glyphicon-remove"></span>Clear
+                            </button>
+                            <!-- image-preview-input -->
+                            <div class="btn btn-default image-preview-input">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                <span class="image-preview-input-title">Browse</span>
+                                <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" />
+                                <!-- rename it -->
+                            </div>
+                        </span>
+                    </div><!-- /input-group image-preview [end HERE]--> 
+                    
                     <input type="submit" class="btn btn-lg btn-success btn-block" value="Done" />
                 </form>
             </div>

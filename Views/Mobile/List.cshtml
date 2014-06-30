@@ -1,0 +1,32 @@
+﻿
+@model List<MobileEra.Models.mobile>
+
+
+<div class="row">
+    <div class="page-header">
+        <h4 style="color:#0996c4"><i class="navbar-fixed-top"></i>@ViewBag.header</h4>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-warning">Sorry! No Mobile foung Against: @ViewBag.header</div>
+    }
+    @for(int i=0;i<Model.Count;i++){
+        string path = Model[i].Model + ".jpg";  
+        <div class="col-lg-3">
+            <div class="thumbnail">
+                <a href="/Mobile/Detail/@Model[i].Model">
+                    <img src="~/images/@path" id="img-@i" style="height: 140px; width: auto" /></a>
+                <div class="raty" data-score="@Model[i].Rating" style="position: absolute; left: 70px"></div>
+                <div class="caption"></div>
+                <p style="text-align: center"><strong>Price:</strong> @Model[i].Price$</p>
+                <h4 style="text-align: center"><a href="/Mobile/Detail/@Model[i].Model">@Model[i].Model</a></h4>
+                <p>
+                    <a href="/Mobile/Detail/@Model[i].Model" class="btn btn-success" style="display:inline"><i class="glyphicon glyphicon-eye-open"></i>View</a>
+                    <a href="/Mobile/addFav/@Model[i].Model" class="btn btn-primary" style="display:inline"><i class="fa fa-heart fa-fw"></i>Favourite</a>
+                </p>
+            </div>
+        </div>
+    }
+
+</div>
