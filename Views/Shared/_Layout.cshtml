@@ -153,10 +153,10 @@
 
 </head>
 
-<body>
+<body style="width:90%;margin:auto">
     <div id="wrapper">
 
-        <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom: 0;margin-top:10px">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -169,10 +169,12 @@
                     Mobile Era</a>
             </div>
             <!-- /.navbar-header -->
-            
-                    <input type="text" placeholder="Search" id="input1">
-            
-            <button class="btn btn-default" id="b1" style="margin-top:9px"><i class="glyphicon glyphicon-search"></i></button>
+                                
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" id="input1">
+                </div>                
+            </form>
             <ul class="nav navbar-nav navbar-right">
                 <li id="home">
                     <a href="/">
