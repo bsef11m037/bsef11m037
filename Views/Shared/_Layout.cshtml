@@ -142,6 +142,48 @@
             width: 100%;
         }
         /*for hover caption-end*/
+
+
+        /*for search*/
+        #custom-search-input {
+            margin: 0;
+            margin-top: 10px;
+            padding: 0;
+        }
+
+            #custom-search-input .search-query {
+                padding-right: 3px;
+                padding-right: 4px \9;
+                padding-left: 3px;
+                padding-left: 4px \9;
+                /* IE7-8 doesn't have border-radius, so don't indent the padding */
+                margin-bottom: 0;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+            }
+
+            #custom-search-input button {
+                border: 0;
+                background: none;
+                /** belows styles are working good */
+                padding: 2px 5px;
+                margin-top: 2px;
+                position: relative;
+                left: -28px;
+                /* IE7-8 doesn't have border-radius, so don't indent the padding */
+                margin-bottom: 0;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                color: #D9230F;
+            }
+
+        .search-query:focus + button {
+            z-index: 3;
+        }
+
+        /*for search end*/
     </style>
 
     <link href="~/Content/application.css" rel="stylesheet" />
@@ -154,8 +196,22 @@
 </head>
 
 <body style="width:90%;margin:auto">
-    <div id="wrapper">
+    <div id="wrapper">        
+        <div id="custom-search-input">
+            <div class="input-group col-md-10">
+                <input type="text" class="  search-query form-control" placeholder="Search for model of mobile or Made e.g 'Nokia', 'Lumia'" id="input1"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button" id="btn1">
+                        <span class=" glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
 
+        <div class="text-center" style="position:absolute;top:10px;right:70px;background:#">
+            <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/aqib.mushtaq3"><i class="fa fa-facebook"></i></a>            
+            <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>            <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>            <a class="btn btn-social-icon btn-google-plus" href="https://plus.google.com/u/0/105944809991419523870/posts"><i class="fa fa-google-plus"></i></a>
+        </div>
         <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom:10px;margin-top:10px">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -168,13 +224,7 @@
                     <img src="~/images/logo.png" />
                     Mobile Era</a>
             </div>
-            <!-- /.navbar-header -->
-                                
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" id="input1">
-                </div>                
-            </form>
+            <!-- /.navbar-header -->                                                                    
             <ul class="nav navbar-nav navbar-right">
                 <li id="home">
                     <a href="/">
@@ -492,7 +542,7 @@
 
 
             /*search start*/
-            $("#b1").click(
+            $("#btn1").click(
             function () {
                 var div = $("#page-content");
                 var input = $("#input1");

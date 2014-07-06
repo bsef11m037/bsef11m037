@@ -37,31 +37,31 @@
                     </div>
                     <div class="panel-body">
                         <form role="form" action="/account/SignupDone" method="post">
-                            <div class="form-group">
-                                @Html.LabelFor(x => x.Full_Name)
-                                @Html.TextBoxFor(x => x.Full_Name, new { @class = "form-control", placeholder = "Your Full Name" })
-                                @Html.ValidationMessageFor(x => x.Full_Name, String.Empty, new { @class = "text text-danger" })
+                            <div class="form-group bs-float-label">
+                                @Html.LabelFor(x => x.Full_Name, new { @class = "float-label" })
+                                @Html.TextBoxFor(x => x.Full_Name, new { @class = "form-control float-input", placeholder = "Your Full Name" })
+                                @Html.ValidationMessageFor(x => x.Full_Name, String.Empty, new { @class = "text text-danger has-error" })
                             </div>
-                            <div class="form-group">
-                                @Html.LabelFor(x => x.Email)
-                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Your E-mail", type = "email" })
-                                @Html.ValidationMessageFor(x => x.Email, String.Empty, new { @class = "text text-danger" })
+                            <div class="form-group bs-float-label">
+                                @Html.LabelFor(x => x.Email, new { @class = "float-label" })
+                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control float-input", placeholder = "Your E-mail" })
+                                @Html.ValidationMessageFor(x => x.Email, String.Empty, new { @class = "text text-danger has-error" })
                                 <p id="msg"></p>
                             </div>
-                            <div class="form-group">
-                                @Html.LabelFor(x => x.Password)
-                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Your new Password", type = "password" })
-                                @Html.ValidationMessageFor(x => x.Password, String.Empty, new { @class = "text text-danger" })
+                            <div class="form-group bs-float-label">
+                                @Html.LabelFor(x => x.Password, new { @class = "float-label" })
+                                @Html.TextBoxFor(x => x.Password, new { @class = "form-control float-input", placeholder = "Your New Password" })
+                                @Html.ValidationMessageFor(x => x.Password, String.Empty, new { @class = "text text-danger has-error" })
                             </div>
-                            <div class="form-group">
-                                @Html.LabelFor(x => x.Security_Question)
-                                @Html.TextBoxFor(x => x.Security_Question, new { @class = "form-control", placeholder = "Scurity Qusetion"})
-                                @Html.ValidationMessageFor(x => x.Security_Question, String.Empty, new { @class = "text text-danger" })
+                            <div class="form-group bs-float-label">
+                                @Html.LabelFor(x => x.Security_Question, new { @class = "float-label" })
+                                @Html.TextBoxFor(x => x.Security_Question, new { @class = "form-control float-input", placeholder = "Security Question" })
+                                @Html.ValidationMessageFor(x => x.Security_Question, String.Empty, new { @class = "text text-danger has-error" })
                             </div>
-                            <div class="form-group">
-                                @Html.LabelFor(x => x.Answer)
-                                @Html.TextBoxFor(x => x.Answer, new { @class = "form-control", placeholder = "Answer" })
-                                @Html.ValidationMessageFor(x => x.Answer, String.Empty, new { @class = "text text-danger" })
+                            <div class="form-group bs-float-label">
+                                @Html.LabelFor(x => x.Answer, new { @class = "float-label" })
+                                @Html.TextBoxFor(x => x.Answer, new { @class = "form-control float-input", placeholder = "Your Answer" })
+                                @Html.ValidationMessageFor(x => x.Answer, String.Empty, new { @class = "text text-danger has-error" })
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
                             <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign Up" />

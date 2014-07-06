@@ -83,6 +83,12 @@
                     </div>
 
                     <div class="form-group bs-float-label">
+                        @Html.LabelFor(x => x.Rating, new { @class = "float-label" })
+                        @Html.TextBoxFor(x => x.Rating, new { @class = "form-control  float-input", placeholder = "Initial Rating" })
+                        @Html.ValidationMessageFor(x => x.Rating, String.Empty, new { @class = "text text-danger has-error" })
+                    </div>
+
+                    <div class="form-group bs-float-label">
                         @Html.LabelFor(x => x.Others, new { @class = "float-label" })
                         @Html.TextBoxFor(x => x.Others, new { @class = "form-control  float-input", placeholder = "Others Info" })
                     </div>
