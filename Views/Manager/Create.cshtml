@@ -1,0 +1,131 @@
+﻿@model MobileEra.Models.mobile
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>mobile</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.M_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.M_id)
+            @Html.ValidationMessageFor(model => model.M_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Made)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Made)
+            @Html.ValidationMessageFor(model => model.Made)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Screen_Size)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Screen_Size)
+            @Html.ValidationMessageFor(model => model.Screen_Size)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Battery)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Battery)
+            @Html.ValidationMessageFor(model => model.Battery)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OS)
+            @Html.ValidationMessageFor(model => model.OS)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Processor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Processor)
+            @Html.ValidationMessageFor(model => model.Processor)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Camera)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Camera)
+            @Html.ValidationMessageFor(model => model.Camera)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Others)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Others)
+            @Html.ValidationMessageFor(model => model.Others)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rating)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Rating)
+            @Html.ValidationMessageFor(model => model.Rating)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.User_Rated_)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.User_Rated_)
+            @Html.ValidationMessageFor(model => model.User_Rated_)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

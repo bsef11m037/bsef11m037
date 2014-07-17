@@ -3,9 +3,13 @@
     string path = Model.Model + ".jpg";
 }
 
-<div class="row" style="margin-top:20px">
-    <div class="col-lg-8 col-lg-push-1">
-        <a href="~/images/@path"  id="image1"><img src="~/images/@path" title="@Model.Model" class="thumbnail pull-right" style="width:auto;height:250px"/></a>
+<div class="row" style="margin-top:20px"> 
+    <div class="col-lg-8 col-lg-offset-1">
+        <div class="fb-like-box pull-right" data-href="https://www.facebook.com/MobileEra" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+        <a href="~/images/@path"  id="image1"><img src="~/images/@path" title="Click to zoom @Model.Model" class="thumbnail pull-left" style="width:auto;height:250px"/></a>        
+        <script>
+            document.write("<div class='fb-like' data-href=''"+ window.location.href +"data-layout='standard' data-action='like' data-show-faces='true' data-share='true'></div>");
+        </script>
     </div>
 </div>
 <div class="row" style="margin-top:10px">
@@ -47,6 +51,14 @@
                 <td><strong>@Html.DisplayNameFor(x=>x.Price)</strong></td>
                 <td>@Model.Price Rs.</td>
             </tr>
-        </table>
+        </table>        
+        <h3>Comments</h3>
+        <hr/>
+
+
+
+        <script>
+            document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-numposts='15' data-colorscheme='light' data-width='100%'></div>");
+        </script>
     </div>
 </div>

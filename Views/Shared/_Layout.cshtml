@@ -11,7 +11,7 @@
     <title>@ViewBag.title | Mobile Era</title>
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <!-- Core CSS - Include with every page -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@<link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
 
     <!-- Page-Level Plugin CSS - Dashboard -->
@@ -184,6 +184,15 @@
         }
 
         /*for search end*/
+
+
+        .back-to-top {
+            cursor: pointer;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+        }
     </style>
 
     <link href="~/Content/application.css" rel="stylesheet" />
@@ -196,10 +205,23 @@
 </head>
 
 <body style="width:90%;margin:auto">
+
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>    
+
     <div id="wrapper">        
         <div id="custom-search-input">
             <div class="input-group col-md-10">
-                <input type="text" class="  search-query form-control" placeholder="Search for model of mobile or Made e.g 'Nokia', 'Lumia'" id="input1"/>
+                <input type="text" class="  search-query form-control" placeholder="Search for model of mobile or Made e.g 'Nokia', 'Lumia'" id="input1" />
                 <span class="input-group-btn">
                     <button class="btn btn-danger" type="button" id="btn1">
                         <span class=" glyphicon glyphicon-search"></span>
@@ -209,10 +231,12 @@
         </div>
 
         <div class="text-center" style="position:absolute;top:10px;right:70px;background:#">
-            <a class="btn btn-social-icon btn-facebook" href="https://www.facebook.com/aqib.mushtaq3"><i class="fa fa-facebook"></i></a>            
-            <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>            <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>            <a class="btn btn-social-icon btn-google-plus" href="https://plus.google.com/u/0/105944809991419523870/posts"><i class="fa fa-google-plus"></i></a>
+            <a href="https://www.facebook.com/aqib.mushtaq3" target="_blank"><i class="fa fa-facebook"></i></a>            
+            <a><i class="fa fa-twitter"></i></a>
+            <a><i class="fa fa-github"></i></a>
+            <a " href="https://plus.google.com/u/0/105944809991419523870/posts" target="_blank"><i class="fa fa-google-plus"></i></a>
         </div>
-        <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom:10px;margin-top:10px">
+        <nav class="navbar navbar-default navbar-invese" role="navigation" style="margin-bottom:10px;margin-top:10px">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -233,7 +257,7 @@
                 </li>
 
                 <li id="favourite">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="/Mobile/Favourite">
+                    <a href="/Mobile/Favourite">
                         <i class="fa fa-heart fa-fw"></i> Favourite Mobiles
                     </a>
                 </li>
@@ -394,7 +418,7 @@
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
+            <!-- /.navbar-static-side -->           
         </nav>
 
         <div id="page-wrapper">
@@ -409,6 +433,7 @@
 
         </div>
     </div>
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
     <footer>               
         <img src="~/images/star-off.png" alt="4" title="good">
         <div id="star"></div>
@@ -439,6 +464,21 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script>
         $(document).ready(function (e) {
+            /*user availan chekc*/
+            $("#Email").focus(function () {
+                $("#msg").text(' ');
+            });
+            $("#Email").blur(function () {
+                $.getJSON("/Account/isAvailable?email=" + $("#Email").val(), function (data) {
+                    if (data == true) {
+                        $("p#msg").text("E-mail Available").removeClass("text-danger").addClass("text-success");
+                    }
+                    else {
+                        $("#msg").text("E-mail Already in use Please use different one").addClass("text-danger");
+                    }
+                });
+            });
+
 
             /*For raty- start*/
             $.fn.raty.defaults.path = "/images/";
@@ -590,6 +630,25 @@
             /*fancybox -end*/
 
 
+            /*scroll to top*/
+            $(window).scroll(function () {
+                if ($(this).scrollTop() >900) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            // scroll body to 0px on click
+            $('#back-to-top').click(function () {
+                $('#back-to-top').tooltip('hide');
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+
+            $('#back-to-top').tooltip('show');
+            /*end of scroll*/
 
         });
 

@@ -1,0 +1,106 @@
+﻿@model MobileEra.Models.mobile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>mobile</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.M_id)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.M_id)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Model)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Model)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Made)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Made)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Screen_Size)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Screen_Size)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Weight)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Weight)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Battery)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Battery)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Processor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Processor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Camera)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Camera)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Others)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Others)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Rating)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Rating)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User_Rated_)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User_Rated_)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
